@@ -1,32 +1,19 @@
+#include <iostream>
+
 #include "triangle.h"
 #include "test_util.h"
 
-int main() {
+using namespace std;
 
-  Triangle t1 = Triangle();
-  t1.setSides(3, 4, 5);
-  
-  Test getters = Test("getters");
-  getters.equal(3, t1.getA(), "check getA()");
-  getters.equal(4, t1.getB(), "check getB()");
-  getters.equal(5, t1.getC(), "check getC()");
+int main(int argc, char* argv[]) {
 
-  Test invariants = Test("invariants");
-  Triangle t_invariants = Triangle();
-  t_invariants.setSides(2, 4, 6);
-  t_invariants.setA(0);
-  invariants.equal(0, 0, "a <= 0");
-  t_invariants.setA(3);
-  invariants.equal(3, t1.getA(), "a >= 0");
+  Triangle t1 = Triangle(3, 4, 5);
+  TestUtil test = TestUtil();
 
-  Triangle t_circumference = Triangle();
-  t_circumference.setSides(4, 4, 4);
-  Test circumference = Test("circumference");
-  circumference.equal(12, t_circumference.circumference(), "check circumference()");
-
-  Triangle t_area = Triangle(3, 4, 5);
-  Test area = Test("area");
-  area.equal(6, t_area.area(), "check area()");
+  test.equal("get a", t1.getA(), 3);
+  test.equal("area of 3, 4, 5", t1.area(), 5.56);
+  test.equal("perimeter of 3, 4, 5", t1.perimeter(), 11);
+  test.equal("invariant a > 0", t1.setSides(12, 24, 36), true);
 
   return 0;
 }

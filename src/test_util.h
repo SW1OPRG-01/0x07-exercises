@@ -1,13 +1,12 @@
-#include <iostream>
+#ifndef TEST_UTIL_H
+#define TEST_UTIL_H
+
 #include <string>
 
-using namespace std;
-
-class Test {
+class TestUtil {
   public:
-    Test(string title);
-    void equal(double expected, double actual, string description = "");
-  private:
-    string title;
-    void print(string description, string result);
+    bool equal(std::string description, double expected, double actual); 
+    bool equal(std::string description, bool expected, bool actual);
 };
+
+#endif

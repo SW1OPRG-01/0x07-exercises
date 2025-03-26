@@ -5,12 +5,12 @@
       "name": "Build and Debug",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/atm.out",
+      "program": "${workspaceFolder}/build/triangle",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
-      "externalConsole": false,
+      "externalConsole": true,
       "windows": {
         "MIMode": "gdb",
       },
@@ -20,7 +20,7 @@
       "osx": {
         "MIMode": "lldb"
       },
-      "preLaunchTask": "build",
-    },
+      "preLaunchTask": "build_project",
+    }
   ]
 }

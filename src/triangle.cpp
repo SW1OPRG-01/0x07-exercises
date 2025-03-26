@@ -7,25 +7,24 @@ Triangle::Triangle(double a, double b, double c) {
   setSides(a, b, c);
 }
 
-void Triangle::setSides(double a, double b, double c) {
-  if(inequality() && a > 0 && b > 0 && c > 0) {
-    this->a = a;
-    this->b = b;
-    this->c = c;
-  } else {
-    this->a = 1; 
-    this->b = 1; 
-    this->c = 1;
-  }
+bool Triangle::setSides(double a, double b, double c) {
+  bool inequality = this->inequality() && a > 0 && b > 0 && c > 0;
+  if(!inequality) {
+    return false;
+  } 
+  this->a = a; 
+  this->b = b; 
+  this->c = b;
+  return true;
 }
 
-double Triangle::circumference() {
+double Triangle::perimeter() const {
   return getA() + getB() + getC();
 }
 
-double Triangle::area() {
-  double s = 0.5 * circumference();
-	return sqrt(s * (s - a) * (s - b) * (s - c));
+double Triangle::area() const {
+  double s = 0.5 * perimeter();
+	return round(sqrt(s * (s - a) * (s - b) * (s - c)) * 100) / 100;
 }
 
 double Triangle::getA() const {
@@ -58,6 +57,6 @@ void Triangle::setC(double c) {
   }
 }
 
-bool Triangle::inequality() {
+bool Triangle::inequality() const {
   return (a + b >= c) && (a + c >= b) && (b + c >= a);
 }

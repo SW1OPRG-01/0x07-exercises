@@ -1,18 +1,20 @@
 #include "test_util.h"
+#include <iostream>
 
-Test::Test(string title) {
-  this->title = title;
-  cout << "TEST " << title << endl;
+bool TestUtil::equal(std::string description, double expected, double actual) {
+  bool result = expected == actual;
+  std::cout << (result ? "PASS " : "FAIL ") << description << std::endl;
+  if(!result) {
+    std::cout << "     expected " << expected << "  actual " << actual << std::endl << std::endl;
+  }
+  return result;  
 }
 
-void Test::equal(double expected, double actual, string description) {
-  if(expected == actual) {
-    print(description, "PASS"); 
-  } else {
-    print(description, "FAIL");
-  } 
-}
-
-void Test::print(string description, string result) {
-  cout << " " << result << " " << description << endl;
+bool TestUtil::equal(std::string description, bool expected, bool actual) {
+  bool result = expected == actual;
+  std::cout << (result ? "PASS " : "FAIL ") << description << std::endl;
+  if(!result) {
+    std::cout << "     expected " << expected << "  actual " << actual << std::endl << std::endl;
+  }
+  return result;  
 }

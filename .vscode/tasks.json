@@ -2,20 +2,25 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
-      "type": "shell",
+      "label": "build_project",
+      "type": "cppbuild",
       "command": "g++",
       "args": [
         "-g",
-        "-std=c++11",
-        "src/*.cpp",
+        "-std=c++20",
+        "main.cpp",
+        "triangle.cpp",
+        "test_util.cpp",
         "-o",
-        "${workspaceFolder}/build/atm.out"
+        "${workspaceFolder}/build/triangle"
       ],
+      "options": {
+        "cwd": "${workspaceFolder}/src"
+      },
       "group": "build",
       "problemMatcher": [
         "$gcc"
       ],
-    },
+    }
   ]
 }

@@ -6,27 +6,28 @@ Create a class `Triangle` with the following:
 - Member functions
   - `Triangle()`
   - `Triangle(double a, double b, double c)`
-  - `void setSides(double a, double b, double c)`
-  - `double circumference()`
+  - `bool setSides(double a, double b, double c)`
+  - `double perimeter()`
   - `double area()`
   - `void print()`
   - Getters and setters for each data member (six functions in total)
 
+Be careful to use the exact naming as defined above or else you'll have to change the tests in `main.cpp` 
 
 ## Invariants
 Add the Triangle Inequality Theorem as an invariant in the `Triangle` class.
 
 Consider the following:
-- which methods should habe a check to satisfy the invariant?
+- which methods should have a "check" to make sure the invariant is satisfied?
 - what can we do optimize our code (**hint**: a private helper method return a `bool` value, perhaps?)
 
 ## The Master Plan
 Here is a master plan of how one could solve this exercise:
-1. add the required files (`triangle.h`, `triangle.cpp`) to the `src` directory
-2. implement the class definition in the header file (`triangle.h`)
-3. add the all the methods defined in the header file (`triangle.h`) in the source file (`triangle.cpp`) but keep them simple (e.g. all getter just return 0) (remember to prefix class methods with `Triangle::`)
-4. check that the code compiles (the tests run, some or all tests may fail, but that's okay)
-5. start modifying your code method for method until you pass all the tests (a smart approach would be to change exactly one thing at a time and run the tests in between changes)
+1. Add the required files (`triangle.h`, `triangle.cpp`) to the `src` directory
+2. Implement the class definition in the header file (`triangle.h`)
+3. Add the all the methods defined in the header file (`triangle.h`) in the source file (`triangle.cpp`), but keep it simple for now (e.g. all getter just return 0) (remember to prefix class methods with `Triangle::`)
+4. Check that the code compiles (the tests run, some or all tests may fail, but that's okay)
+5. Start modifying your code method for method until all tests pass (a smart approach would be to change exactly one thing at a time and run the tests in between each change)
 
 ## Tests
 Test the function by running the program provided in `main.cpp` and make sure
@@ -48,9 +49,9 @@ TEST area
  FAIL check area()
 ```
 
-In the example above, we can see that all but one test passes. What the tests are telling us, is that there are some problems with the algorithm in the method `area()`.
+We can see that all but one test passes in the example above. The tests are telling us there are some problems with the algorithm in the `area()` method.
 
-This implementation for the `Test` class can be found in `test_util.h` and `test_util.cpp` if you're to see how it works "under the hood"
+This implementation for the `TestUtil` class can be found in `test_util.h` and `test_util.cpp` – take a look too see how it works "under the hood" and come up with your own tests.
 
 ## Triangle geometry
 Here are some useful information about triangles you might want to consider when working on this exercise

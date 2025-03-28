@@ -24,7 +24,7 @@ double Triangle::perimeter() const {
 
 double Triangle::area() const {
   double s = 0.5 * perimeter();
-	return round(sqrt(s * (s - a) * (s - b) * (s - c)) * 100) / 100;
+  return round(sqrt(s * (s - a) * (s - b) * (s - c)) * 100) / 100;
 }
 
 double Triangle::getA() const {
